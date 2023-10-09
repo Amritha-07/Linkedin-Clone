@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -61,7 +62,7 @@ const Header = () => {
                             </a>
 
                             <Signout>
-                                <a>Sign Out</a>
+                                <a><Link to='/'>Sign Out</Link></a>
                             </Signout>
                         </User>
                         <Work>
@@ -224,6 +225,10 @@ const Signout = styled.div`
     transition-duration: 167ms;
     text-align: center;
     display: none;
+
+    a {
+        text-decoration: none;
+    }
 `
 
 const User = styled(NavList)`

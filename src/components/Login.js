@@ -1,7 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Login = (props) => {
+const Login = () => {
+    const navigate = useNavigate();
+
     return (
         <Container>
             <Nav>
@@ -10,7 +13,7 @@ const Login = (props) => {
                 </a>
                 <div>
                     <Join>Join now</Join>
-                    <Signin>Sign in</Signin>
+                    <Signin onClick={() => navigate('/home')}>Sign in</Signin>
                 </div>
             </Nav>
             <Section>
@@ -19,7 +22,7 @@ const Login = (props) => {
                     <img src='images/login-hero.svg' alt='' />
                 </Hero>
                 <Form>
-                    <Google>
+                    <Google onClick={() => navigate('/home')}>
                         <img src='images/google.svg' alt='' />
                         Sign in with Google
                     </Google>
@@ -126,7 +129,6 @@ const Hero = styled.div`
     }
 
     img {
-        /* z-index: -1; */
         width: 700px;
         height: 670px;
         position: absolute;
@@ -171,5 +173,17 @@ const Google = styled.button`
         color: rgba(0, 0, 0, 0.75);
     }
 `
+
+// const mapStateToProps = (state) => {
+//     return {
+//         user: state.userState.user
+//     }
+// }
+
+// const mapDispatchToProps = (dispatch) => ({
+//     signIn: () => dispatch(signInAPI()),
+// });
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Login)
 
 export default Login
